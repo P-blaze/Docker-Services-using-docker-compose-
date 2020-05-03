@@ -1,0 +1,30 @@
+version: '3'
+services:
+        myosdb:
+                image: mysql:5.7
+                volumes:
+                        - ownsql_storage1:/var/lib/mysql
+                restart: always
+                environment:
+                        MYSQL_ROOT_PASSWORD: my123
+                        MYSQL_USER: pblaze
+                        MYSQL_PASSWORD: my1234
+                        MYSQL_DATABASE: mydb
+        joomlos:
+                image: joomla:latest
+                restart: always
+                depends_on:
+                        - myosdb
+                ports:
+                        - 8083:80
+                environment:
+                        OWN_CLOUD_DB_HOST: myosdb
+                        OWN_CLOUD_DB_USER: pblaze
+                        OWN_CLOUD_DB_PASSWORD: my1234
+                        OWN_CLOUD_DB_NAME: mydb
+                volumes:
+                        - joomla_storage1:/var/www/html
+volumes:
+        ownsql_storage1:
+        joomla_storage1:
+ 
