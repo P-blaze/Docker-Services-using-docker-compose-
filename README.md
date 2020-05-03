@@ -21,10 +21,10 @@ Database used is : `mysql`
      - add docker.repo and dvd.repo inside the `/etc/yum.repos.d` for local installation using `https://download.docker.com/linux/centos/docker-ce.repo`
      
 => make sure that on top of your base os, docker and docker-compose are installed in latest version.
-   + to install docker : `yum install docker-ce --nobest`
-   + to setup dokcer compose:
-    - sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-  compose
-    - sudo chmod +x /usr/local/bin/docker-compose
+    + to install docker : `yum install docker-ce --nobest`
+    + to setup dokcer compose:
+       - sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-  compose
+       - sudo chmod +x /usr/local/bin/docker-compose
 
 => to start docker :     
     + permanently : `systemctl enable docker`
@@ -33,14 +33,15 @@ Database used is : `mysql`
 # now to get any services using program :
 
 => run the program using python3 :  `# python3 docker-run.py`
+
 => before executing the above cmd, make sure you have cloned this project in `/root` folder.
 
 => all the images used inside this project will be downloaded automatically, but you can also install them manually using:
-  ` docker pull joomlan:latest
-    docker pull owncloud:latest
-    docker pull mysql:5.7 
-    docker pull wordpress:5.1.1-php7.3-apache
-   `
+  ` 1.docker pull joomlan:latest`
+   `2.docker pull owncloud:latest`
+  ` 3.docker pull mysql:5.7 `
+   `4.docker pull wordpress:5.1.1-php7.3-apache`
+   
 => to start docker-compose env inside wordpress, joomlan , owncloud folder manuallty you can use :
    + `docker-compose start`
    
